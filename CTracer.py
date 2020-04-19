@@ -36,8 +36,6 @@ st.markdown("<h1 style='text-align: center; color: green;'>Ergo - NamibiaHacksCo
 
 st.markdown("<h1 style='text-align: center; color: black;'>Where has't thee been?</h1>", unsafe_allow_html=True)
 
-st.markdown("<p style='text-align: center; color: black;'>Redacted showcase of application to be used for contact tracing of covid infected persons.</p>", unsafe_allow_html=True)
-
 st.markdown("<h3 style='text-align: center; color: black;'>Download location data that google has on you at the following link...</h3>", unsafe_allow_html=True)
 st.markdown("<div style='text-align:center'><p><a href='https://takeout.google.com/' >https://takeout.google.com </p></a></div>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: black;'>You need to select and download ONLY your 'Location History' in 'JSON' format as zip file, choose your desired date range below and load the zip file.</p>", unsafe_allow_html=True)
