@@ -1,0 +1,8 @@
+beautifulsoup4
+folium
+progressbar2
+ijson
+streamlit
+pandas
+numpy
+pydeck
