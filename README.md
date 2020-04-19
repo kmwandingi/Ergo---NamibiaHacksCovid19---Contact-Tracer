@@ -10,7 +10,7 @@ To use (Windows Only): Make sure python3 or later is onstalled on your machine.
 
 3.	In command line run: pip install -r requirements.txt
 
-4.	After all requirements are installed, run: streamlit run CTracer.py
+4.	After all requirements are installed: run: streamlit run CTracer.py
 
 The app should open in the browser
 
