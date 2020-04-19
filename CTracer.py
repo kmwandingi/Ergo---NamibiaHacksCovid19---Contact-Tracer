@@ -31,28 +31,38 @@ from datetime import datetime, timedelta
 cwd = os.getcwd()
 image = Image.open('bw.png')
 st.image(image, width = 130, format ='PNG')
-#st.title("Where Have You Been?")
+
+st.markdown("<h1 style='text-align: center; color: green;'>Ergo - NamibiaHacksCovid19</h1>", unsafe_allow_html=True)
+
 st.markdown("<h1 style='text-align: center; color: black;'>Where has't thee been?</h1>", unsafe_allow_html=True)
+
+st.markdown("<p style='text-align: center; color: black;'>Redacted showcase of application to be used for contact tracing of covid infected persons.</p>", unsafe_allow_html=True)
+
 st.markdown("<h3 style='text-align: center; color: black;'>Download location data that google has on you at the following link...</h3>", unsafe_allow_html=True)
 st.markdown("<div style='text-align:center'><p><a href='https://takeout.google.com/' >https://takeout.google.com </p></a></div>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: black;'>You ONLY need to select and download your 'Location History' as zip file and load into the box below.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: black;'>You need to select and download ONLY your 'Location History' in 'JSON' format as zip file, choose your desired date range below and load the zip file.</p>", unsafe_allow_html=True)
 
 # data = st.radio("",('ALL', 'Add Date Range'))
-st.markdown("<br></br>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: black;'>Choose Date Range</p>", unsafe_allow_html=True)
+
+start_date,end_date = None, None
 
 
-# if st.button("Add date range"):
-#     today = datetime.today()
-#     tomorrow = today + timedelta(days=1)
-#     start_date = st.date_input('Start date', today)
-#     end_date = st.date_input('End date', tomorrow)
-# else:
-#     st.success("Plot all data")
+today = datetime.today() - timedelta(days=90)
+tomorrow = today + timedelta(days=56)
+start_date = st.date_input('Start date', today)
+end_date = st.date_input('End date', tomorrow)
+min_date, max_date = (str(start_date), str(end_date))
+
+# st.success("Plot all data")
+# min_date, max_date = (None, None)
     
-# if start_date < end_date:
-#     st.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
-# else:
-#     st.error('Error: End date must fall after start date.')
+if start_date is not None:    
+    if start_date < end_date:
+        st.success('Start date: `%s`\n\nEnd date: `%s`' % (start_date, end_date))
+    else:
+        st.error('Error: End date must fall after start date.')
+
 
 fname = st.file_uploader("", type = ["zip"])
 
@@ -67,7 +77,7 @@ a = None
 e = folium.Map()
 file_count = 0
 
-min_date, max_date = (None, None)
+#min_date, max_date = (None, None)
 date_range = min_date, max_date
 stream_data = False
 settings = {
